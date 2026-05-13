@@ -6,8 +6,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import base64
 
+import os
+
 def set_background(image_file):
-    with open(image_file, "rb") as f:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(base_dir, '..', image_file)  # go up from pages/ to root
+    
+    with open(image_path, "rb") as f:
         img_data = base64.b64encode(f.read()).decode()
     st.markdown(f"""
         <style>
@@ -19,7 +24,7 @@ def set_background(image_file):
         </style>
     """, unsafe_allow_html=True)
 
-set_background("analysis.jpg")
+set_background("analysis.jpg")  # this stays the same
 
 df = pd.DataFrame(pickle.load(open('df_m.pkl', 'rb')))
 df = df.loc[:, ~df.columns.duplicated()]
