@@ -1,8 +1,7 @@
 streamlit
+gdown
 pandas
-numpy
+requests
 matplotlib
 seaborn
 scikit-learn
-plotly
-gdown
