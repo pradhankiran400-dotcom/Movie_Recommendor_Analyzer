@@ -6,13 +6,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 similarity_path = os.path.join(BASE_DIR, 'similarity.pkl')
 
 if not os.path.exists(similarity_path):
-    # Use direct download URL format - no fuzzy needed
     file_id = '196lfVcfpm4e9XEuISwOV9XH_pzzobZon'
     gdown.download(id=file_id, output=similarity_path, quiet=False)
 
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 pg = st.navigation([
-    st.Page("pages/home.py", title="🎬 Home"),
+    st.Page("pages/home.py", title="🏠 Home"),
     st.Page("pages/analysis.py", title="📊 Analysis")
 ])
 pg.run()
