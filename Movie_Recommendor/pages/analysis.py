@@ -24,7 +24,7 @@ def set_background(image_file):
         </style>
     """, unsafe_allow_html=True)
 
-set_background("analysis.jpg")  # this stays the same
+set_background("analysis.jpg")  
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 df = pd.DataFrame(pickle.load(open(os.path.join(base_dir, '..', 'df_m.pkl'), 'rb')))
