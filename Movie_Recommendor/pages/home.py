@@ -25,9 +25,11 @@ def set_background(image_file):
 
 set_background("image.jpg")
 
-base_dir   = os.path.dirname(os.path.abspath(__file__))
-movies     = pd.DataFrame(pickle.load(open(os.path.join(base_dir, '..', 'movies.pkl'), 'rb')))
-similarity = pickle.load(open(os.path.join(base_dir, '..', 'similarity.pkl'), 'rb'))
+BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR   = os.path.join(BASE_DIR, '..')
+
+movies     = pd.DataFrame(pickle.load(open(os.path.join(ROOT_DIR, 'movies.pkl'), 'rb')))
+similarity = pickle.load(open(os.path.join(ROOT_DIR, 'similarity.pkl'), 'rb'))
 
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=b29bc66ed87b5d4259606b0810101c03"
