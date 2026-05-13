@@ -10,6 +10,11 @@ if not os.path.exists(similarity_path):
     url = 'https://drive.google.com/uc?id=196lfVcfpm4e9XEuISwOV9XH_pzzobZon'
     gdown.download(url, similarity_path, quiet=False, fuzzy=True)
 
+if os.path.exists(similarity_path):
+    st.sidebar.success(f"✅ similarity.pkl loaded ({os.path.getsize(similarity_path) // 1024 // 1024} MB)")
+else:
+    st.sidebar.error("❌ similarity.pkl NOT found — download failed!")
+
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 pg = st.navigation([
     st.Page("pages/home.py", title="🎬 Home"),
