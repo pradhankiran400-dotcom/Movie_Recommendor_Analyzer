@@ -26,7 +26,8 @@ def set_background(image_file):
 
 set_background("analysis.jpg")  # this stays the same
 
-df = pd.DataFrame(pickle.load(open('df_m.pkl', 'rb')))
+base_dir = os.path.dirname(os.path.abspath(__file__))
+df = pd.DataFrame(pickle.load(open(os.path.join(base_dir, '..', 'df_m.pkl'), 'rb')))
 df = df.loc[:, ~df.columns.duplicated()]
 df = df.reset_index(drop=True)
 df['profit'] = df['revenue'] - df['budget']
