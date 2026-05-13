@@ -7,9 +7,8 @@ import base64
 import os
 
 def set_background(image_file):
-    # Build absolute path relative to this file's location
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    image_path = os.path.join(base_dir, '..', image_file)  # go up from pages/ to root
+    image_path = os.path.join(base_dir, '..', image_file) 
     
     with open(image_path, "rb") as f:
         img_data = base64.b64encode(f.read()).decode()
